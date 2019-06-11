@@ -1,6 +1,8 @@
 var enterBtn = document.getElementById('enter-btn');
+var cardSection = document.querySelector('.right-section');
 
 enterBtn.addEventListener('click', grabInputValues);
+cardSection.addEventListener('click', deleteCard);
 
 function grabInputValues(event) {
     event.preventDefault();
@@ -22,4 +24,12 @@ function appendCard(title, url) {
     </article>
   `;
     sectionTag.insertAdjacentHTML('afterbegin', cardHTML);
+}
+
+function deleteCard(event) {
+    var sectionTag = document.querySelector('.right-section')
+    var card = event.target.parentNode.parentNode;
+    if (event.target.id === 'delete-btn') {
+        sectionTag.removeChild(card);
+    }
 }
