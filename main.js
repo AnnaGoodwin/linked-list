@@ -2,7 +2,7 @@ var enterBtn = document.getElementById('enter-btn');
 var cardSection = document.querySelector('.right-section');
 
 enterBtn.addEventListener('click', grabInputValues);
-cardSection.addEventListener('click', deleteCard);
+cardSection.addEventListener('click', cardActions);
 
 function grabInputValues(event) {
     event.preventDefault();
@@ -27,9 +27,23 @@ function appendCard(title, url) {
 }
 
 function deleteCard(event) {
-    var sectionTag = document.querySelector('.right-section')
     var card = event.target.parentNode.parentNode;
-    if (event.target.id === 'delete-btn') {
-        sectionTag.removeChild(card);
+    cardSection.removeChild(card);
+}
+
+function toggleReadBtn(event) {
+    if (!event.target.classList.contains('read-color')) {
+        event.target.classList.add('read-color')
+    } else {
+        event.target.classList.remove('read-color')
+    }
+}
+
+function cardActions(event) {
+    if (event.target.id === 'delete-btn') { 
+        deleteCard(event);
+    }
+    if (event.target.id === 'read-btn') {
+        toggleReadBtn(event);
     }
 }
