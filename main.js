@@ -12,6 +12,9 @@ function grabInputValues(event) {
 }
 
 function appendCard(title, url) {
+    if (title === '' || url === '') {
+        alert('Please input a valid title and url!')
+    } else {
     var sectionTag = document.querySelector('.right-section')
     var cardHTML = `
     <article class="card">
@@ -24,6 +27,7 @@ function appendCard(title, url) {
     </article>
   `;
     sectionTag.insertAdjacentHTML('afterbegin', cardHTML);
+    }
 }
 
 function deleteCard(event) {
