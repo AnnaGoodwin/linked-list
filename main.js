@@ -60,17 +60,10 @@ function enableButton() {
     var titleValue = document.getElementById('title-input').value;
     var urlValue = document.getElementById('url-input').value;
     if(titleValue == "" || urlValue == "") {
-        console.log(titleValue, urlValue);
         document.getElementById('enter-btn').disabled = true;
     } else {
         document.getElementById('enter-btn').disabled = false;
-        console.log(titleValue, urlValue, 'else');
     }
-}
-
-function checkFieldChange(event) {
-    enableButton();
-
 }
 
 // check if input fields have any values entered
