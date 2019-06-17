@@ -1,10 +1,12 @@
 var enterBtn = document.getElementById('enter-btn');
 var cardSection = document.querySelector('.right-section');
-var titleValue = document.getElementById('title-input').value;
-var urlValue = document.getElementById('url-input').value;
+var titleField = document.getElementById('title-input');
+var urlField = document.getElementById('url-input');
 
 enterBtn.addEventListener('click', grabInputValues);
 cardSection.addEventListener('click', cardActions);
+titleField.addEventListener('input', enableButton);
+urlField.addEventListener('input', enableButton);
 
 function grabInputValues(event) {
     event.preventDefault();
@@ -55,10 +57,14 @@ function cardActions(event) {
 }
 
 function enableButton() {
-    if(empty(titleValue) || empty(urlValue)) {
+    var titleValue = document.getElementById('title-input').value;
+    var urlValue = document.getElementById('url-input').value;
+    if(titleValue == "" || urlValue == "") {
+        console.log(titleValue, urlValue);
         document.getElementById('enter-btn').disabled = true;
     } else {
         document.getElementById('enter-btn').disabled = false;
+        console.log(titleValue, urlValue, 'else');
     }
 }
 
