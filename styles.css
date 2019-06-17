@@ -41,9 +41,19 @@ form {
   margin: 20px;
 }
 
+#enter-btn {
+  background-color: #FFC107;
+}
+
 .read-color {
   color: orange;
 }
+
+/* .disabled {
+  background-color: #3d3f7a;
+  border: #5356a4;
+  cursor: not-allowed;
+} */
 
 
 

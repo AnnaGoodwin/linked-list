@@ -51,3 +51,57 @@ function cardActions(event) {
         toggleReadBtn(event);
     }
 }
+
+function enableButton() {
+    var titleValue = document.getElementById('title-input').value;
+    var urlValue = document.getElementById('url-input').value;
+    if(empty(titleValue) || empty(urlValue)) {
+        document.getElementById('enter-btn').disabled = true;
+    } else {
+        document.getElementById('enter-btn').disabled = false;
+    }
+}
+
+function checkFieldChange() {
+    
+}
+
+// check if input fields have any values entered
+// if there are values in both input fields, enable button
+// create function that query selects each input
+// check with every field change
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var titleValue = document.getElementById('title-input');
+// var urlValue = document.getElementById('url-input');
+// titleValue.addEventListener('keyup', disableBtn);
+// urlValue.addEventListener('keyup', disableBtn);
+// function disableBtn() {
+//     if(titleValue.length > 1 || urlValue.length > 1) {
+//        enterBtn.disabled = true; 
+//     }
+// }
+
+// window.addEventListener('load', handleSubmitButton)
+
+// function handleSubmitButton(e){
+//     e.preventDefault()
+//      if(titleValue.value.length < 1 && urlValue.value.length < 1){
+//         enterBtn.disabled = true;
+//         enterBtn.classList.add('disabled')
+//      } else {
+//        enterBtn.disabled = false;
+//        enterBtn.classList.remove('disabled')
+//      }
+//    };
