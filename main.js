@@ -2,17 +2,22 @@ var enterBtn = document.getElementById('enter-btn');
 var cardSection = document.querySelector('.right-section');
 var titleField = document.getElementById('title-input');
 var urlField = document.getElementById('url-input');
+var totalCounter = 0;
+var readCounter = 0;
+var unreadCounter = 0;
 
-enterBtn.addEventListener('click', grabInputValues);
+enterBtn.addEventListener('click', onClickEnter);
 cardSection.addEventListener('click', cardActions);
 titleField.addEventListener('input', enableButton);
 urlField.addEventListener('input', enableButton);
 
-function grabInputValues(event) {
+function onClickEnter(event) {
     event.preventDefault();
     var titleValue = document.getElementById('title-input').value;
     var urlValue = document.getElementById('url-input').value;
     appendCard(titleValue, urlValue);
+    totalCounter++;
+    unreadCounter++;
 }
 
 function appendCard(title, url) {
@@ -36,14 +41,25 @@ function appendCard(title, url) {
 
 function deleteCard(event) {
     var card = event.target.parentNode.parentNode;
+    if (event.target.previousSibling.previousSibling.className.includes('read-color')) {
+        readCounter--;
+    } else {
+        unreadCounter--;
+    }
+    
+    totalCounter--;
     cardSection.removeChild(card);
 }
 
 function toggleReadBtn(event) {
     if (!event.target.classList.contains('read-color')) {
         event.target.classList.add('read-color')
+        readCounter++;
+        unreadCounter--;
     } else {
         event.target.classList.remove('read-color')
+        readCounter--;
+        unreadCounter++;
     }
 }
 
